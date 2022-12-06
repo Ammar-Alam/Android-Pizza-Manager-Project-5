@@ -80,6 +80,7 @@ public class ChicagoOrderActivity extends AppCompatActivity {
             Toast.makeText(ChicagoOrderActivity.this, getResources().getString(R.string.orderFailed).toString(), Toast.LENGTH_LONG).show();
             return;
         }
+        MainActivity.currentOrder.add(currentPizza);
         submissionAlert();
     }
 
