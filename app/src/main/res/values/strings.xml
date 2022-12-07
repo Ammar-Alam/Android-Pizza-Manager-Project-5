@@ -40,4 +40,5 @@
     <string name="maxToppingsAlertMessage">You may not add more than 7 toppings to a pizza! Please remove some toppings.</string>
     <string name="orderFailed">Could not place order!</string>
     <string name="priceTitle">Price</string>
+    <string name="newyorkPizzaOrderTitle">Ordering A New York Style Pizza</string>
 </resources>
