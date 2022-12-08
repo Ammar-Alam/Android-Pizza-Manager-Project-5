@@ -75,14 +75,6 @@ public class NYOrderActivity extends AppCompatActivity {
      * @param view Triggering view
      */
     public void submitOrder(View view){
-        ListView listView = findViewById(R.id.toppingsList);
-        int numToppingsSelected = listView.getCheckedItemCount();
-        // Check if too many toppings are selected
-        if(numToppingsSelected > MAX_TOPPINGS) {
-            maxToppingAlert();
-            Toast.makeText(NYOrderActivity.this, getResources().getString(R.string.orderFailed), Toast.LENGTH_LONG).show();
-            return;
-        }
         MainActivity.currentOrder.add(currentPizza);
         submissionAlert();
     }
@@ -335,7 +327,7 @@ public class NYOrderActivity extends AppCompatActivity {
         AdapterView.OnItemSelectedListener listener = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(NYOrderActivity.this, spinner.getSelectedItem().toString() + " pizza selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(NYOrderActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
                 updatePizza();
             }
             @Override
