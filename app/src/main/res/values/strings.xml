@@ -6,7 +6,7 @@
     <string name="storeOrdersButton">View Store Orders</string>
     <string name="nyPizzaOrderTitle">Ordering A New York Style Pizza</string>
     <string name="chicagoPizzaOrderTitle">Ordering A Chicago Style Pizza</string>
-    <string name="currentOrderTitle">Viewing Current Order</string>
+    <string name="currentOrderTitle">Viewing Current: </string>
     <string name="storeOrdersTitle">Viewing All Store Orders</string>
     <string name="pizzaSizeSmall">Small</string>
     <string name="pizzaSizeMedium">Medium</string>
@@ -40,4 +40,10 @@
     <string name="maxToppingsAlertMessage">You may not add more than 7 toppings to a pizza! Please remove some toppings.</string>
     <string name="orderFailed">Could not place order!</string>
     <string name="priceTitle">Price</string>
+    <string name="subtotalTitle">Subtotal</string>
+    <string name="salesTaxTitle">Sales Tax</string>
+    <string name="totalTitle">Total</string>
+    <string name="placeOrderButton">Place Order</string>
+    <string name="removeSelectedPizzaButton">Remove Selected Pizza</string>
+    <string name="clearOrderButton">Clear Order</string>
 </resources>
