@@ -1,18 +1,19 @@
 package com.application.androidpizzamanagerproject5;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
-import pizzaclasses.ChicagoPizza;
+import androidx.appcompat.app.AppCompatActivity;
+
 import pizzaclasses.Order;
-import pizzaclasses.Pizza;
-import pizzaclasses.Size;
 import pizzaclasses.StoreOrders;
 
+/**
+ * @author Ammar A
+ * @author Nikhil G
+ * Controller class for activity_main.xml
+ */
 public class MainActivity extends AppCompatActivity {
     /**
      * Store orders
@@ -30,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("Main:Current Order", currentOrder.toString());
-        Log.d("Main:Current Order Contents", currentOrder.getOrderItems().toString());
     }
 
     /**
@@ -42,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, NYOrderActivity.class);
         startActivity(intent);
     }
+
     /**
      * Launches Chicago Order Activity
      * @param view View
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ChicagoOrderActivity.class);
         startActivity(intent);
     }
+
     /**
      * Launches Current Order Activity
      * @param view View
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CurrentOrderActivity.class);
         startActivity(intent);
     }
+
     /**
      * Launches Store Orders Activity
      * @param view View

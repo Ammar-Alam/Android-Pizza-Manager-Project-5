@@ -1,25 +1,36 @@
 package com.application.androidpizzamanagerproject5;
 
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
-
-import java.lang.reflect.Array;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import pizzaclasses.Order;
 import pizzaclasses.Pizza;
 
+/**
+ * @author Ammar A
+ * @author Nikhil G
+ * Controller class for activity_current_order.xml
+ */
 public class CurrentOrderActivity extends AppCompatActivity {
+    /**
+     * List of pizzas in current order
+     */
     private ArrayList<Pizza> pizzas;
-    RecyclerView orderPizzasListView;
+    /**
+     * RecyclerView to show pizzas in
+     */
+    private RecyclerView orderPizzasListView;
 
     /**
      * Initialize activity
@@ -52,6 +63,10 @@ public class CurrentOrderActivity extends AppCompatActivity {
      * @param view Triggering view
      */
     public void placeOrder(View view){
+        if(MainActivity.currentOrder.getOrderItems().isEmpty()){
+            noPizzasAlert();
+            return;
+        }
         MainActivity.storeOrders.add(MainActivity.currentOrder);
         MainActivity.currentOrder = new Order(MainActivity.storeOrders.getNextOrderNumber());
         CurrentOrderActivity.this.finish();
@@ -71,6 +86,10 @@ public class CurrentOrderActivity extends AppCompatActivity {
         MainActivity.currentOrder = new Order(MainActivity.currentOrder.getOrderNum());
         CurrentOrderActivity.this.finish();
     }
+
+    /**
+     * Sets order number
+     */
     private void setOrderNumber(){
         TextView orderNumber = findViewById(R.id.orderNumberView);
         orderNumber.setText(MainActivity.currentOrder.toString());
@@ -116,4 +135,15 @@ public class CurrentOrderActivity extends AppCompatActivity {
         display.setText(decimalFormat.format(subtotal));
     }
 
+    /**
+     * Shows AlertDialog prompt
+     */
+    private void noPizzasAlert(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(getResources().getString(R.string.submitOrderAlertTitle)).setMessage(getResources().getString(R.string.noPizzasInCurrentOrderWarningMessage));
+        alert.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {}
+        });
+        alert.create().show();
+    }
 }

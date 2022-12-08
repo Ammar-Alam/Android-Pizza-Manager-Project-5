@@ -1,13 +1,8 @@
 package com.application.androidpizzamanagerproject5;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +14,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -29,6 +27,11 @@ import pizzaclasses.PizzaFactory;
 import pizzaclasses.Size;
 import pizzaclasses.Topping;
 
+/**
+ * @author Ammar A
+ * @author Nikhil G
+ * Controller class for activity_chicago_order.xml
+ */
 public class ChicagoOrderActivity extends AppCompatActivity {
     /**
      * Current pizza being made
@@ -37,7 +40,7 @@ public class ChicagoOrderActivity extends AppCompatActivity {
     /**
      * PizzaFactory object to create pizzas with
      */
-    private PizzaFactory pizzaFactory = new ChicagoPizza();
+    private final PizzaFactory pizzaFactory = new ChicagoPizza();
     /**
      * Maximum number of allowed toppings
      */
@@ -62,7 +65,7 @@ public class ChicagoOrderActivity extends AppCompatActivity {
         toppingListView.setAdapter(adapter);
         toppingListView.setOnItemClickListener(toppingListListener(toppingListView));
         // Set up size selection
-        RadioGroup sizeSelection = (RadioGroup) findViewById(R.id.crustSize);
+        RadioGroup sizeSelection = findViewById(R.id.crustSize);
         sizeSelection.setOnCheckedChangeListener(sizeSelectionListener(sizeSelection));
         updatePizza();
     }
@@ -77,7 +80,7 @@ public class ChicagoOrderActivity extends AppCompatActivity {
         // Check if too many toppings are selected
         if(numToppingsSelected > MAX_TOPPINGS) {
             maxToppingAlert();
-            Toast.makeText(ChicagoOrderActivity.this, getResources().getString(R.string.orderFailed).toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(ChicagoOrderActivity.this, getResources().getString(R.string.orderFailed), Toast.LENGTH_LONG).show();
             return;
         }
         MainActivity.currentOrder.add(currentPizza);
@@ -98,6 +101,7 @@ public class ChicagoOrderActivity extends AppCompatActivity {
         Log.d("Parent Activity", "parent: " + ChicagoOrderActivity.this.isChild());
         alert.create().show();
     }
+
     /**
      * Shows AlertDialog prompt for max toppings reached
      */
@@ -209,13 +213,19 @@ public class ChicagoOrderActivity extends AppCompatActivity {
         updatePrice();
     }
 
+    /**
+     * Updates price
+     */
     private void updatePrice(){
         TextView priceDisplay = findViewById(R.id.priceDisplay);
         DecimalFormat decimalFormat = new DecimalFormat("##########.##");
-        String price = String.valueOf(decimalFormat.format(currentPizza.price()));
+        String price = decimalFormat.format(currentPizza.price());
         priceDisplay.setText(price);
     }
 
+    /**
+     * Updates size
+     */
     private void updateSize(){
         RadioButton small = findViewById(R.id.smallRadioButton);
         RadioButton medium = findViewById(R.id.mediumRadioButton);
@@ -333,6 +343,12 @@ public class ChicagoOrderActivity extends AppCompatActivity {
         };
         return listener;
     }
+
+    /**
+     * Create listener for size selection
+     * @param radioGroup RadioGroup to create listener for
+     * @return OnCheckedChangeListener
+     */
     private RadioGroup.OnCheckedChangeListener sizeSelectionListener(RadioGroup radioGroup){
         RadioGroup.OnCheckedChangeListener listener = new RadioGroup.OnCheckedChangeListener() {
             @Override
