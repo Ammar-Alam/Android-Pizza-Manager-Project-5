@@ -48,4 +48,12 @@
     <string name="clearOrderButton">Clear Order</string>
     <string name="selectOrderSpinnerDefault">Select an order to view</string>
     <string name="cancelSelectedOrderButton">Cancel Selected Order</string>
+    <string name="cancelSelectedOrderButtonNoOrders">No Orders</string>
+    <string name="noPizzasInCurrentOrderWarningMessage">No pizzas in current order</string>
+    <string name="noPizzasInCurrentOrderWarningTitle">No Pizzas</string>
+    <string name="orderCancelledTitle">Order Canceled</string>
+    <string name="orderCancelledMessage">The order was cancelled.</string>
+
+
+
 </resources>
