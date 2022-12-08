@@ -7,7 +7,7 @@
     <string name="newyorkPizzaOrderTitle">Ordering A New York Style Pizza</string>
     <string name="chicagoPizzaOrderTitle">Ordering A Chicago Style Pizza</string>
     <string name="currentOrderTitle">Viewing Current: </string>
-    <string name="storeOrdersTitle">Viewing All Store Orders</string>
+    <string name="storeOrdersTitle">Viewing Store Orders</string>
     <string name="pizzaSizeSmall">Small</string>
     <string name="pizzaSizeMedium">Medium</string>
     <string name="pizzaSizeLarge">Large</string>
@@ -46,4 +46,6 @@
     <string name="placeOrderButton">Place Order</string>
     <string name="removeSelectedPizzaButton">Remove Selected Pizza</string>
     <string name="clearOrderButton">Clear Order</string>
+    <string name="selectOrderSpinnerDefault">Select an order to view</string>
+    <string name="cancelSelectedOrderButton">Cancel Selected Order</string>
 </resources>
