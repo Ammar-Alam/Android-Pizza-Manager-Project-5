@@ -14,7 +14,13 @@ import pizzaclasses.Size;
 import pizzaclasses.StoreOrders;
 
 public class MainActivity extends AppCompatActivity {
+    /**
+     * Store orders
+     */
     public static StoreOrders storeOrders = new StoreOrders();
+    /**
+     * Current order
+     */
     public static Order currentOrder = new Order(storeOrders.getNextOrderNumber());
     /**
      * Initialize MainActivity
