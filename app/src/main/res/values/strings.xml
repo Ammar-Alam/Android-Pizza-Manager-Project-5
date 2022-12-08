@@ -4,7 +4,7 @@
     <string name="chicagoPizzaOrderButton">Order A Chicago Style Pizza</string>
     <string name="currentOrderButton">View Current Order</string>
     <string name="storeOrdersButton">View Store Orders</string>
-    <string name="nyPizzaOrderTitle">Ordering A New York Style Pizza</string>
+    <string name="newyorkPizzaOrderTitle">Ordering A New York Style Pizza</string>
     <string name="chicagoPizzaOrderTitle">Ordering A Chicago Style Pizza</string>
     <string name="currentOrderTitle">Viewing Current: </string>
     <string name="storeOrdersTitle">Viewing All Store Orders</string>
